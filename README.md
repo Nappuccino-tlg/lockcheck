@@ -6,6 +6,7 @@ Finds Alembic migrations that will lock a Postgres table, before they run.
 ![Python](https://img.shields.io/badge/python-3.10%20--%203.13-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Dependencies](https://img.shields.io/badge/dependencies-none-brightgreen)
+[![PyPI](https://img.shields.io/pypi/v/lockcheck)](https://pypi.org/project/lockcheck/)
 
 ```bash
 pip install lockcheck
