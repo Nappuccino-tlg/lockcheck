@@ -26,16 +26,9 @@ to that table stops — for as long as it takes.
 
 Nobody finds out at review time. They find out during the deploy.
 
-```
-alembic/versions/0002_click_rollups.py
-    47  LC002  CREATE INDEX without CONCURRENTLY blocks writes for the whole build
-            The table takes a SHARE lock until the index finishes, so every write waits
-            -- minutes on a large table, and the queue behind it outlives the migration.
-            Pass postgresql_concurrently=True and run it outside the transaction (see
-            LC003).
+![lockcheck reporting two LC002 findings in a real Alembic migration: CREATE INDEX without CONCURRENTLY blocks writes for the whole build](docs/lockcheck.svg)
 
-1 problem found.
-```
+<sub>A real run against this project's own migrations, at the commit before the fix. Both findings were genuine; one was a blocking index on the busiest table in the application.</sub>
 
 Exit code 1, so CI stops. Every finding names the fix, because a linter that reports a
 problem and leaves the answer as an exercise gets silenced by the first person in a hurry.

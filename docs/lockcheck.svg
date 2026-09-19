@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="306" viewBox="0 0 860 306" role="img" aria-label="lockcheck reporting two LC002 findings in a real Alembic migration: CREATE INDEX without CONCURRENTLY blocks writes for the whole build">
+<title>lockcheck finding a blocking CREATE INDEX before it reaches production</title>
+<g transform="translate(0,0)">
+<rect x="0.5" y="0.5" width="859" height="305" rx="8" fill="#0d1117" stroke="#30363d"/>
+<path d="M0.5 8.5a8 8 0 0 1 8-8h843a8 8 0 0 1 8 8V28H0.5z" fill="#161b22"/>
+<line x1="0.5" y1="28" x2="859.5" y2="28" stroke="#30363d"/>
+<circle cx="18" cy="14.5" r="5" fill="#ff5f57"/>
+<circle cx="34" cy="14.5" r="5" fill="#febc2e"/>
+<circle cx="50" cy="14.5" r="5" fill="#28c840"/>
+<text x="430.0" y="18.5" fill="#7d8590" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono','Courier New',monospace" font-size="11" text-anchor="middle">lockcheck</text>
+<text x="18" y="48" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono','Courier New',monospace" font-size="13.5" xml:space="preserve"><tspan fill="#3fb950">$</tspan><tspan fill="#e6edf3"> lockcheck</tspan></text>
+<text x="18" y="88" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono','Courier New',monospace" font-size="13.5" xml:space="preserve"><tspan fill="#79c0ff">alembic/versions/0002_click_rollups.py</tspan></text>
+<text x="18" y="108" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono','Courier New',monospace" font-size="13.5" xml:space="preserve"><tspan fill="#7d8590">    47  </tspan><tspan fill="#ff7b72">LC002</tspan><tspan fill="#c9d1d9">  CREATE INDEX without CONCURRENTLY blocks writes for the</tspan></text>
+<text x="18" y="128" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono','Courier New',monospace" font-size="13.5" xml:space="preserve"><tspan fill="#c9d1d9">               whole build</tspan></text>
+<text x="18" y="148" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono','Courier New',monospace" font-size="13.5" xml:space="preserve"><tspan fill="#7d8590">            The table takes a SHARE lock until the index finishes, so</tspan></text>
+<text x="18" y="168" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono','Courier New',monospace" font-size="13.5" xml:space="preserve"><tspan fill="#7d8590">            every write waits -- minutes on a large table, and the queue</tspan></text>
+<text x="18" y="188" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono','Courier New',monospace" font-size="13.5" xml:space="preserve"><tspan fill="#7d8590">            behind it outlives the migration. Pass</tspan></text>
+<text x="18" y="208" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono','Courier New',monospace" font-size="13.5" xml:space="preserve"><tspan fill="#7d8590">            postgresql_concurrently=True and run it outside the</tspan></text>
+<text x="18" y="228" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono','Courier New',monospace" font-size="13.5" xml:space="preserve"><tspan fill="#7d8590">            transaction (see LC003).</tspan></text>
+<text x="18" y="268" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono','Courier New',monospace" font-size="13.5" xml:space="preserve"><tspan fill="#d29922">2 problems found.</tspan></text>
+</g>
+</svg>
